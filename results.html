@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .results-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .results h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .results p {
+            margin-bottom: 10px;
+        }
+        .poll-link {
+            margin-top: 15px;
+        }
+        .poll-link a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="results-container">
+    <h2>Poll Results:</h2>
+    <div id="results"></div>
+
+    <div class="poll-link">
+        <a href="poll.html">Back to Poll</a>
+    </div>
+    <div class="poll-reset">
+        <button id="resetButton">Reset Poll</button>
+    </div>
+</div>
+
+<script>
+    // Function to update and display poll results
+    function updateResults() {
+        const results = JSON.parse(localStorage.getItem('pollResults'));
+        let resultsHtml = '';
+        for (const [option, count] of Object.entries(results)) {
+            resultsHtml += `<p>${option}: ${count} votes</p>`;
+        }
+        document.getElementById('results').innerHTML = resultsHtml;
+    }
+
+    // Handle reset button click
+    document.getElementById('resetButton').addEventListener('click', function() {
+        localStorage.setItem('pollResults', JSON.stringify({
+            Python: 0,
+            JavaScript: 0,
+            Java: 0,
+            'C++': 0
+        }));
+        updateResults(); // Refresh the results display
+        alert('Poll has been reset.');
+    });
+
+    // Display the results when the page loads
+    updateResults();
+</script>
+
+</body>
+</html>
