@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Poll</title>
+    <title>Poll</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,8 +28,12 @@
         .poll-option input {
             margin-right: 10px;
         }
-        .poll-submit, .poll-reset {
+        .poll-submit, .poll-results-link {
             margin-top: 15px;
+        }
+        .poll-results-link a {
+            text-decoration: none;
+            color: blue;
         }
     </style>
 </head>
@@ -61,11 +65,9 @@
         </div>
     </form>
 
-    <div class="poll-reset">
-        <button id="resetButton">Reset Poll</button>
+    <div class="poll-results-link">
+        <a href="results.html">View Results</a>
     </div>
-
-    <div class="results" id="results"></div>
 </div>
 
 <script>
@@ -79,16 +81,6 @@
         }));
     }
 
-    // Function to update and display poll results
-    function updateResults() {
-        const results = JSON.parse(localStorage.getItem('pollResults'));
-        let resultsHtml = '<h2>Poll Results:</h2>';
-        for (const [option, count] of Object.entries(results)) {
-            resultsHtml += `<p>${option}: ${count} votes</p>`;
-        }
-        document.getElementById('results').innerHTML = resultsHtml;
-    }
-
     // Handle form submission
     document.getElementById('pollForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting traditionally
@@ -98,4 +90,25 @@
             return;
         }
 
-        const selected
+        const selectedOption = document.querySelector('input[name="language"]:checked');
+        if (selectedOption) {
+            const results = JSON.parse(localStorage.getItem('pollResults'));
+            results[selectedOption.value]++;
+            localStorage.setItem('pollResults', JSON.stringify(results));
+
+            sessionStorage.setItem('hasVoted', 'true'); // Mark that the user has voted
+
+            alert('You voted for: ' + selectedOption.value);
+        } else {
+            alert('Please select an option before voting.');
+        }
+    });
+
+    // Reset session vote status on page load
+    window.addEventListener('load', function() {
+        sessionStorage.removeItem('hasVoted');
+    });
+</script>
+
+</body>
+</html>
