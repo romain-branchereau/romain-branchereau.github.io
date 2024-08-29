@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Poll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .poll-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .poll-question {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .poll-option {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .poll-option input {
+            margin-right: 10px;
+        }
+        .poll-submit {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="poll-container">
+    <form id="pollForm">
+        <div class="poll-question">
+            What is your favorite programming language?
+        </div>
+        <label class="poll-option">
+            <input type="radio" name="language" value="Python">
+            Python
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="language" value="JavaScript">
+            JavaScript
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="language" value="Java">
+            Java
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="language" value="C++">
+            C++
+        </label>
+        <div class="poll-submit">
+            <button type="submit">Vote</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('pollForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting traditionally
+
+        const selectedOption = document.querySelector('input[name="language"]:checked');
+        if (selectedOption) {
+            alert('You voted for: ' + selectedOption.value);
+            // Here you can add code to handle the vote, like sending it to a server or updating the page
+        } else {
+            alert('Please select an option before voting.');
+        }
+    });
+</script>
+
+</body>
+</html>
