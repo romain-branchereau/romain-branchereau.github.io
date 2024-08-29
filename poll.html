@@ -98,37 +98,4 @@
             return;
         }
 
-        const selectedOption = document.querySelector('input[name="language"]:checked');
-        if (selectedOption) {
-            const results = JSON.parse(localStorage.getItem('pollResults'));
-            results[selectedOption.value]++;
-            localStorage.setItem('pollResults', JSON.stringify(results));
-
-            sessionStorage.setItem('hasVoted', 'true'); // Mark that the user has voted
-
-            alert('You voted for: ' + selectedOption.value);
-            updateResults(); // Display the updated results
-        } else {
-            alert('Please select an option before voting.');
-        }
-    });
-
-    // Handle reset button click
-    document.getElementById('resetButton').addEventListener('click', function() {
-        localStorage.setItem('pollResults', JSON.stringify({
-            Python: 0,
-            JavaScript: 0,
-            Java: 0,
-            'C++': 0
-        }));
-        sessionStorage.removeItem('hasVoted'); // Clear the voting status for any session
-        updateResults(); // Refresh the results display
-        alert('Poll has been reset.');
-    });
-
-    // Display the results when the page loads
-    updateResults();
-</script>
-
-</body>
-</html>
+        const selected
