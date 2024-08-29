@@ -79,11 +79,6 @@
         }));
     }
 
-    // Check if the user has voted in this session
-    if (!sessionStorage.getItem('hasVoted')) {
-        sessionStorage.setItem('hasVoted', 'false');
-    }
-
     // Function to update and display poll results
     function updateResults() {
         const results = JSON.parse(localStorage.getItem('pollResults'));
@@ -126,7 +121,7 @@
             Java: 0,
             'C++': 0
         }));
-        sessionStorage.setItem('hasVoted', 'false'); // Reset voting status
+        sessionStorage.removeItem('hasVoted'); // Clear the voting status for any session
         updateResults(); // Refresh the results display
         alert('Poll has been reset.');
     });
