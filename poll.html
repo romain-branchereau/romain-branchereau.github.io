@@ -28,11 +28,8 @@
         .poll-option input {
             margin-right: 10px;
         }
-        .poll-submit {
+        .poll-submit, .poll-reset {
             margin-top: 15px;
-        }
-        .results {
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -64,6 +61,10 @@
         </div>
     </form>
 
+    <div class="poll-reset">
+        <button id="resetButton">Reset Poll</button>
+    </div>
+
     <div class="results" id="results"></div>
 </div>
 
@@ -78,6 +79,11 @@
         }));
     }
 
+    // Check if the user has voted in this session
+    if (!sessionStorage.getItem('hasVoted')) {
+        sessionStorage.setItem('hasVoted', 'false');
+    }
+
     // Function to update and display poll results
     function updateResults() {
         const results = JSON.parse(localStorage.getItem('pollResults'));
@@ -88,21 +94,41 @@
         document.getElementById('results').innerHTML = resultsHtml;
     }
 
+    // Handle form submission
     document.getElementById('pollForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting traditionally
 
+        if (sessionStorage.getItem('hasVoted') === 'true') {
+            alert('You have already voted in this session.');
+            return;
+        }
+
         const selectedOption = document.querySelector('input[name="language"]:checked');
         if (selectedOption) {
-            // Update local storage with the new vote count
             const results = JSON.parse(localStorage.getItem('pollResults'));
             results[selectedOption.value]++;
             localStorage.setItem('pollResults', JSON.stringify(results));
+
+            sessionStorage.setItem('hasVoted', 'true'); // Mark that the user has voted
 
             alert('You voted for: ' + selectedOption.value);
             updateResults(); // Display the updated results
         } else {
             alert('Please select an option before voting.');
         }
+    });
+
+    // Handle reset button click
+    document.getElementById('resetButton').addEventListener('click', function() {
+        localStorage.setItem('pollResults', JSON.stringify({
+            Python: 0,
+            JavaScript: 0,
+            Java: 0,
+            'C++': 0
+        }));
+        sessionStorage.setItem('hasVoted', 'false'); // Reset voting status
+        updateResults(); // Refresh the results display
+        alert('Poll has been reset.');
     });
 
     // Display the results when the page loads
