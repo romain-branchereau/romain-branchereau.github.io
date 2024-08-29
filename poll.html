@@ -31,6 +31,9 @@
         .poll-submit {
             margin-top: 15px;
         }
+        .results {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -60,20 +63,50 @@
             <button type="submit">Vote</button>
         </div>
     </form>
+
+    <div class="results" id="results"></div>
 </div>
 
 <script>
+    // Initialize results in localStorage if not already set
+    if (!localStorage.getItem('pollResults')) {
+        localStorage.setItem('pollResults', JSON.stringify({
+            Python: 0,
+            JavaScript: 0,
+            Java: 0,
+            'C++': 0
+        }));
+    }
+
+    // Function to update and display poll results
+    function updateResults() {
+        const results = JSON.parse(localStorage.getItem('pollResults'));
+        let resultsHtml = '<h2>Poll Results:</h2>';
+        for (const [option, count] of Object.entries(results)) {
+            resultsHtml += `<p>${option}: ${count} votes</p>`;
+        }
+        document.getElementById('results').innerHTML = resultsHtml;
+    }
+
     document.getElementById('pollForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting traditionally
 
         const selectedOption = document.querySelector('input[name="language"]:checked');
         if (selectedOption) {
+            // Update local storage with the new vote count
+            const results = JSON.parse(localStorage.getItem('pollResults'));
+            results[selectedOption.value]++;
+            localStorage.setItem('pollResults', JSON.stringify(results));
+
             alert('You voted for: ' + selectedOption.value);
-            // Here you can add code to handle the vote, like sending it to a server or updating the page
+            updateResults(); // Display the updated results
         } else {
             alert('Please select an option before voting.');
         }
     });
+
+    // Display the results when the page loads
+    updateResults();
 </script>
 
 </body>
