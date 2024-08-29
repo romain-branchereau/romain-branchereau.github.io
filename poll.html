@@ -28,12 +28,8 @@
         .poll-option input {
             margin-right: 10px;
         }
-        .poll-submit, .poll-results-link {
+        .poll-submit {
             margin-top: 15px;
-        }
-        .poll-results-link a {
-            text-decoration: none;
-            color: blue;
         }
     </style>
 </head>
@@ -64,10 +60,6 @@
             <button type="submit">Vote</button>
         </div>
     </form>
-
-    <div class="poll-results-link">
-        <a href="results.html">View Results</a>
-    </div>
 </div>
 
 <script>
@@ -85,28 +77,17 @@
     document.getElementById('pollForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting traditionally
 
-        if (sessionStorage.getItem('hasVoted') === 'true') {
-            alert('You have already voted in this session.');
-            return;
-        }
-
         const selectedOption = document.querySelector('input[name="language"]:checked');
         if (selectedOption) {
             const results = JSON.parse(localStorage.getItem('pollResults'));
             results[selectedOption.value]++;
             localStorage.setItem('pollResults', JSON.stringify(results));
 
-            sessionStorage.setItem('hasVoted', 'true'); // Mark that the user has voted
-
-            alert('You voted for: ' + selectedOption.value);
+            // Redirect to results page after voting
+            window.location.href = 'results.html';
         } else {
             alert('Please select an option before voting.');
         }
-    });
-
-    // Reset session vote status on page load
-    window.addEventListener('load', function() {
-        sessionStorage.removeItem('hasVoted');
     });
 </script>
 
