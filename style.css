@@ -26,3 +26,11 @@ line-height: 170%;
     max-width: 700px; /* Limit the width of the text */
 }
 
+.address {
+    font-size: 18px; /* Set font size */
+    margin: 0; /* Remove any margins */
+    padding: 0; /* Remove padding */
+    display: block; /* Ensure it is displayed as a block */
+    white-space: pre-line; /* Ensure that line breaks are respected */
+}
+
