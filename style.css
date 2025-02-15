@@ -26,11 +26,16 @@ line-height: 170%;
     max-width: 700px; /* Limit the width of the text */
 }
 
+/* Styling for the address */
 .address {
-    font-size: 18px; /* Set font size */
-    margin: 0; /* Remove any margins */
-    padding: 0; /* Remove padding */
-    display: block; /* Ensure it is displayed as a block */
-    white-space: pre-line; /* Ensure that line breaks are respected */
+    font-size: 1.2rem; /* Set font size */
+    line-height: 1.6; /* Spacing between lines */
+    display: inline-block; /* Make the address start right after the label */
+    margin-left: 10px; /* Optional: Add a small space between the label and the address */
+}
+
+/* Optional: Ensure "Address:" doesn't have unnecessary space */
+b {
+    margin-right: 5px; /* Small space after the bold text */
 }
 
