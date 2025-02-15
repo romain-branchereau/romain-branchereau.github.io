@@ -6,18 +6,24 @@ line-height: 170%;
   background-color: GhostWhite;
   padding: 10px;
 }
+/* Styling the container */
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center
+    display: flex; /* Using flexbox to align image and text */
+    gap: 20px; /* Adds space between the image and the text */
+    align-items: center; /* Vertically center the content */
+    margin-top: 20px;
 }
 
-img {
-  max-width: 50%;
-  max-height:50%;
+/* Styling the image */
+.image img {
+    width: 300px; /* Adjust the image size */
+    height: auto;
 }
 
+/* Styling the text */
 .text {
-  font-size: 18px;
-  padding-left: 20px;
+    font-size: 1.2rem; /* Increase font size */
+    line-height: 1.6; /* Spacing between lines */
+    max-width: 500px; /* Limit the width of the text */
 }
+
