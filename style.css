@@ -22,8 +22,7 @@ line-height: 170%;
 
 /* Styling the text */
 .text {
-    font-size: 1.2rem; /* Increase font size */
-    line-height: 1.6; /* Spacing between lines */
-    max-width: 500px; /* Limit the width of the text */
+    font-size: 18px; /* Increase font size */
+    max-width: 700px; /* Limit the width of the text */
 }
 
