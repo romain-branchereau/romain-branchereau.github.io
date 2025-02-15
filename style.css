@@ -1,8 +1,8 @@
-body {background-color: LightYellow; font-family: Palatino; font-size: 18px;}
+body {background-color: lightyellow; font-family: Palatino; font-size: 18px;}
 .content {
 line-height: 170%;
   max-width: 1000px;
   margin: auto;
-  background-color: LightYellow;
+  background-color: lightyellow;
   padding: 10px;
 }
