@@ -1,8 +1,8 @@
-body {background-color: ghostwhite; font-family: Palatino; font-size: 18px;}
+body {background-color: GhostWhite; font-family: Palatino; font-size: 18px;}
 .content {
 line-height: 170%;
   max-width: 1000px;
   margin: auto;
-  background-color: ghostwhite;
+  background-color: GhostWhite;
   padding: 10px;
 }
