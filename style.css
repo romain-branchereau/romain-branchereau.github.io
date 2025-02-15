@@ -7,10 +7,11 @@ line-height: 170%;
   padding: 10px;
 }
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 1fr 1fr;
+ column-gap: 5px;
+}
   
   img {
     max-width: 30%;
