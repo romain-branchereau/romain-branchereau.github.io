@@ -16,7 +16,7 @@ line-height: 170%;
 
 /* Styling the image */
 .image img {
-    width: 10%; /* Adjust the image size */
+    width: 200px; /* Adjust the image size */
     height: auto;
 }
 
