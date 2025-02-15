@@ -29,7 +29,8 @@ line-height: 170%;
 /* Container for Address */
 .address-container {
     display: flex;
-    align-items: flex-start; /* Aligns items to the start vertically */
+    flex-wrap: wrap; /* Allow wrapping for the address */
+    align-items: flex-start; /* Align items to the start vertically */
 }
 
 /* Styling for the label 'Address' */
@@ -42,5 +43,7 @@ b {
     font-size: 1.2rem; /* Set font size */
     line-height: 1.6; /* Spacing between lines */
     display: inline-block; /* Make the address start right after the label */
+    white-space: pre-line; /* Preserve line breaks */
+    margin-top: 0; /* Remove any unnecessary top margin */
 }
 
