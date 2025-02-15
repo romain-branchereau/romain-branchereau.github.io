@@ -26,16 +26,21 @@ line-height: 170%;
     max-width: 700px; /* Limit the width of the text */
 }
 
+/* Container for Address */
+.address-container {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the start vertically */
+}
+
+/* Styling for the label 'Address' */
+b {
+    margin-right: 10px; /* Small space after the bold text */
+}
+
 /* Styling for the address */
 .address {
     font-size: 1.2rem; /* Set font size */
     line-height: 1.6; /* Spacing between lines */
     display: inline-block; /* Make the address start right after the label */
-    margin-left: 10px; /* Optional: Add a small space between the label and the address */
-}
-
-/* Optional: Ensure "Address:" doesn't have unnecessary space */
-b {
-    margin-right: 5px; /* Small space after the bold text */
 }
 
