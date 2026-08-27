@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="google-site-verification" content="BFNv_2cqwBSVQr-MVwlVyMKO0LdbxqWwST-y-9G5Zn0" />
+        <link rel="stylesheet" href="style.css"/>
+        <title>Romain Branchereau - Home</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <nav>
+    <a href="index.html">Home</a> &gt; <a href="teaching.html">Teaching</a> &gt; Math 518 F25
+</nav>
+            <header>
+                <h2>Math 518 - Fall 2025 - <a href="518_course_outline.pdf">Course outline</a></h2>
+            </header>
+            <section>
+                <table class="worksheet-table">
+                    <tr><td><a href="518_W1.pdf">Homework 1</a></td><td><a href="518_W1_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_W2.pdf">Homework 2</a></td><td><a href="518_W2_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_W3.pdf">Homework 3</a></td><td><a href="518_W3_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_W4.pdf">Homework 4</a></td><td><a href="518_W4_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_W5.pdf">Homework 5</a></td><td><a href="518_W5_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_W5.pdf">Homework 5</a></td><td><a href="518_W5_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_MIDTERM.pdf">Midterm</a></td><td><a href="518_MIDTERM_sol.pdf">Solutions</a></td></tr>
+                    <tr><td><a href="518_FINAL.pdf">Final</a></td><td><a href="518_FINAL_sol.pdf">Solutions</a></td></tr>
+                </table>
+            </section>
+        </div>
+    </body>
+</html>
