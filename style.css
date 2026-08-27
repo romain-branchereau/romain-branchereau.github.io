@@ -31,7 +31,7 @@ line-height: 170%;
 }
 
 .worksheet-table td {
-  padding: 0.4em 1.5em 0.4em 0;
+  padding: 0.4em 4em 0.4em 0; /* 4em au lieu de 1.5em */
 }
 
 .worksheet-table a {
